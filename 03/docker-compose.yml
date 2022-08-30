@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  rabbit:
+    image: rabbitmq:3.10-management 
+    volumes: 
+      - ./.docker-storage/rabbitmq/data/:/var/lib/rabbitmq/ 
+      - ./.docker-storage/rabbitmq/logs/:/var/log/rabbitmq/ 
+    restart: "on-failure:5"
+    healthcheck: 
+      test: rabbitmq-diagnostics ping 
+      interval: 10s 
+      timeout: 10s 
+      retries: 3 
+    ports: 
+      - 5672:5672 
+      - 15672:15672
