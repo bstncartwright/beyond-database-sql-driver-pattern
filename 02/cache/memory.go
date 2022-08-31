@@ -1,11 +1,11 @@
 package cache
 
 type InMemoryCache struct {
-	cache map[string]interface{}
+	cache map[string]any
 }
 
 func NewInMemory() Cache {
-	return &InMemoryCache{}
+	return &InMemoryCache{make(map[string]any)}
 }
 
 func (c *InMemoryCache) Get(key string) (any, bool) {

@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  redis:
+    image: redis:5-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    healthcheck:
+      test: redis-cli ping
+      interval: 10s
+      timeout: 10s
+      retries: 30
+    ports:
+      - 6379:6379

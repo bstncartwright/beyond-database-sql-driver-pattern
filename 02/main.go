@@ -21,6 +21,11 @@ func main() {
 		repo = cache.NewInMemory()
 	}
 
+	err := repo.Put("data", "go rocks 🚀")
+	if err != nil {
+		panic(err)
+	}
+
 	data, ok := repo.Get("data")
 	if !ok {
 		panic("not found in cache")
