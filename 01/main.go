@@ -29,7 +29,7 @@ func (m Movie) String() string {
 const (
 	// -- driver and string for sqlite
 	// driver           = "sqlite3"
-	// connectionString = "movies.sqllite"
+	// connectionString = "movies.sqlite"
 
 	// -- driver and string for postgres
 	driver           = "postgres"
